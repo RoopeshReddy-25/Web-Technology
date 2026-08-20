@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Decor Ideas Blog</title>
+
+<hr>
+<body>
+<!-- Media Section -->
+<div>
+
+    <h2>Home Decor Inspiration Media</h2>
+
+    <h3>Audio</h3>
+    <audio controls>
+        <source src="C:\Users\Admin\Downloads\atlasaudio-interior-design-522432.mp3" type="audio/mp3">
+    </audio>
+
+    <br><br>
+
+    <h3>Video</h3>
+
+    <iframe 
+        width="400" 
+        height="225"
+        src="https://www.youtube.com/embed/waWLgQVXHzg"
+        title="Home Decor Inspiration"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <br><br>
+
+    <h3>Embedded </h3>
+    <embed src="C:\Users\Admin\Downloads\100-home-decor-ideas.pdf" width="500" height="300">
+
+    <br><br>
+</div>
+
+<hr>
+
+<!-- Home Decor Form -->
+<div>
+
+    <h2>Subscribe to Our Home Decor Blog</h2>
+
+    <form action="#" method="post">
+
+        <fieldset>
+
+            <legend>Subscriber Details</legend>
+
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone"><br><br>
+
+            <label for="style">Favorite Decor Style:</label><br>
+
+            <select id="style" name="style">
+
+                <option>Modern</option>
+                <option>Minimalist</option>
+                <option>Traditional</option>
+                <option>Rustic</option>
+                <option>Bohemian</option>
+
+            </select>
+
+            <br><br>
+
+            <label>Interested In:</label><br>
+
+            <input type="checkbox" id="living" name="room">
+            <label for="living">Living Room</label><br>
+
+            <input type="checkbox" id="bedroom" name="room">
+            <label for="bedroom">Bedroom</label><br>
+
+            <input type="checkbox" id="kitchen" name="room">
+            <label for="kitchen">Kitchen</label>
+
+            <br><br>
+
+            <label>Subscription Plan:</label><br>
+
+            <input type="radio" id="basic" name="plan">
+            <label for="basic">Basic</label><br>
+
+            <input type="radio" id="premium" name="plan">
+            <label for="premium">Premium</label>
+
+            <br><br>
+
+            <label for="comments">Comments:</label><br>
+
+            <textarea id="comments" rows="5" cols="40"
+                placeholder="Write your ideas here..."></textarea>
+
+            <br><br>
+
+            <label>Profile Completion:</label><br>
+
+            <progress value="70" max="100"></progress>
+
+            <br><br>
+
+            <input type="submit" value="Subscribe">
+            <input type="reset" value="Reset">
+
+        </fieldset>
+
+    </form>
+
+</div>
+</body>
+<hr>
