@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Decor Ideas Blog</title>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div id="top">
+        <h1 align="center">Home Decor Ideas Blog</h1>
+
+        <p>
+            Welcome to the Home Decor Ideas Blog. Discover stylish decorating
+            tips, creative DIY projects, modern furniture ideas, and inspiration
+            to transform your home into a beautiful living space.
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- Navigation Section -->
+    <div>
+
+        <h2>Quick Navigation</h2>
+
+        <a href="#ideas">Decor Ideas</a> |
+        <a href="#categories">Categories</a> |
+        <a href="#contact">Contact</a> |
+        <a href="#top">Back to Top</a>
+
+        <br><br>
+
+        <!-- External Link -->
+        <a href="https://www.architecturaldigest.com" target="_blank">
+            Visit Home Decor Inspiration
+        </a>
+
+        <br><br>
+
+        <!-- Email Link -->
+        <a href="mailto:homedecor@example.com">
+            Email Us
+        </a>
+
+        <br><br>
+
+        <!-- Phone Link -->
+        <a href="tel:+919876543210">
+            Call Us
+        </a>
+
+    </div>
+
+    <hr>
+
+    <!-- Image Section -->
+    <div>
+
+        <h2>Featured Living Room Design</h2>
+
+        <a href="https://www.architecturaldigest.com" target="_blank">
+
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800"
+                 alt="Modern Living Room"
+                 width="500">
+
+        </a>
+
+        <p>
+            Modern living rooms combine comfort, simplicity, and elegance.
+            Neutral colors, indoor plants, and stylish furniture create a warm
+            and welcoming atmosphere.
+        </p>
+
+    </div>
+
+    <hr>
+
+    <!-- Decor Ideas -->
+    <div id="ideas">
+
+        <h2>Popular Home Decor Ideas</h2>
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <th>Room</th>
+                <th>Style</th>
+                <th>Main Feature</th>
+            </tr>
+
+            <tr>
+                <td>Living Room</td>
+                <td>Modern</td>
+                <td>Minimal Furniture</td>
+            </tr>
+
+            <tr>
+                <td>Bedroom</td>
+                <td>Bohemian</td>
+                <td>Warm Lighting</td>
+            </tr>
+
+            <tr>
+                <td>Kitchen</td>
+                <td>Contemporary</td>
+                <td>Open Shelves</td>
+            </tr>
+
+            <tr>
+                <td>Bathroom</td>
+                <td>Luxury</td>
+                <td>Marble Finish</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <hr>
+
+    <!-- Description List -->
+    <div>
+
+        <h2>Decor Tips</h2>
+
+        <dl>
+
+            <dt><b>Minimalist Design</b></dt>
+            <dd>Use fewer decorative items and keep spaces clutter-free.</dd>
+
+            <dt><b>Indoor Plants</b></dt>
+            <dd>Add greenery to improve freshness and home aesthetics.</dd>
+
+            <dt><b>Accent Lighting</b></dt>
+            <dd>Decorative lights create a cozy and elegant atmosphere.</dd>
+
+        </dl>
+
+    </div>
+
+    <hr>
+
+    <!-- Ordered Nested List -->
+    <div id="categories">
+
+        <h2>Blog Categories</h2>
+
+        <ol>
+
+            <li>Room Decoration
+                <ol>
+                    <li>Living Room</li>
+                    <li>Bedroom</li>
+                    <li>Kitchen</li>
+                </ol>
+            </li>
+
+            <li>DIY Projects
+                <ol>
+                    <li>Wall Art</li>
+                    <li>Furniture Makeover</li>
+                    <li>Plant Decor</li>
+                </ol>
+            </li>
+
+        </ol>
+
+    </div>
+
+    <hr>
+
+    <!-- Unordered Nested List -->
+    <div>
+
+        <h2>Decor Essentials</h2>
+
+        <ul>
+
+            <li>Furniture
+                <ul>
+                    <li>Sofa</li>
+                    <li>Dining Table</li>
+                    <li>Bookshelf</li>
+                </ul>
+            </li>
+
+            <li>Accessories
+                <ul>
+                    <li>Curtains</li>
+                    <li>Wall Paintings</li>
+                    <li>Indoor Plants</li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <hr>
+
+    <!-- Contact Section -->
+    <div id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Address: Home Decor Ideas Blog, Chennai, Tamil Nadu.
+        </p>
+
+        <p>
+            Phone:
+            <a href="tel:+919876543210">
+                +91 9876543210
+            </a>
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:homedecor@example.com">
+                homedecor@example.com
+            </a>
+        </p>
+
+        <p>
+            <a href="#top">Go to Top</a>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <div>
+
+        <p align="center">
+            © 2026 Home Decor Ideas Blog | Designed using HTML5
+        </p>
+
+    </div>
+
+</body>
+
+</html>
