@@ -1,1 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Home Decor Ideas Blog - JavaScript DOM</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
+body{
+background:linear-gradient(135deg,#f5e6d3,#fff8f0);
+}
+
+header{
+background:linear-gradient(90deg,#8b5e3c,#c68b59);
+color:white;
+padding:30px;
+text-align:center;
+box-shadow:0 5px 15px gray;
+}
+
+header h1{
+font-size:40px;
+text-shadow:2px 2px 5px black;
+}
+
+header p{
+margin-top:10px;
+font-size:18px;
+}
+  
+nav{
+background:#33251d;
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+list-style:none;
+}
+
+nav ul li{
+position:relative;
+}
+
+nav ul li a{
+display:block;
+padding:15px 30px;
+color:white;
+text-decoration:none;
+}
+
+nav ul li:hover{
+background:#d28b45;
+}
+  
+.dropdown{
+display:none;
+position:absolute;
+background:#8b5e3c;
+min-width:200px;
+}
+
+.dropdown li{
+width:100%;
+}
+
+.dropdown li a{
+padding:12px;
+}
+
+nav ul li:hover .dropdown{
+display:block;
+}
+
+.container{
+width:90%;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.card h2{
+text-align:center;
+color:#8b5e3c;
+margin-bottom:20px;
+text-decoration:underline;
+}
+
+.banner{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:12px;
+}
+
+label{
+font-weight:bold;
+display:block;
+margin-top:15px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:10px;
+margin-top:6px;
+border:1px solid gray;
+border-radius:8px;
+}
+
+textarea{
+height:100px;
+}
+
+button{
+background:#8b5e3c;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+margin-top:20px;
+font-size:16px;
+}
+
+button:hover{
+background:#d28b45;
+}
+
+.price{
+font-size:25px;
+color:#b22222;
+text-align:center;
+margin-top:20px;
+font-weight:bold;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.gallery img{
+width:100%;
+height:220px;
+border-radius:10px;
+object-fit:cover;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,tr,td,th{
+border:1px solid gray;
+padding:15px;
+}
+
+th{
+background:#8b5e3c;
+color:white;
+}
+
+footer{
+background:#33251d;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+<header>
+<h1>🏠 Home Decor Ideas Blog</h1>
+<p>Beautiful Ideas • Creative Spaces • Happy Homes</p>
+</header>
+<nav>
+<ul>
+<li>
+<a href="#">Home</a>
+<ul class="dropdown">
+<li><a href="#">Living Room</a></li>
+<li><a href="#">Bedroom</a></li>
+<li><a href="#">Kitchen</a></li>
+<li><a href="#">Garden</a></li>
+</ul>
+</li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Decor Booking</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+<div class="container">
+<div class="card">
+<h2>Home Decor Booking Form</h2>
+<img class="banner"
+src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg">
+<label>Customer Name</label>
+<input type="text" id="name">
+<label>Email</label>
+<input type="email" id="email">
+<label>Phone Number</label>
+<input type="text" id="phone">
+<label>Decor Type</label>
+<select id="dtype">
+<option value="Living Room">Living Room</option>
+<option value="Bedroom">Bedroom</option>
+<option value="Kitchen">Kitchen</option>
+<option value="Garden">Garden</option>
+<option value="Full House">Full House</option>
+</select>
+<label>Decor Package</label>
+
+<select id="package">
+
+<option value="25000">
+Premium Decor (₹25000)
+</option>
+
+<option value="15000">
+Modern Decor (₹15000)
+</option>
+
+<option value="10000">
+Classic Decor (₹10000)
+</option>
+
+<option value="5000">
+Basic Decor (₹5000)
+</option>
+
+</select>
+
+
+<label>Decoration Date</label>
+
+<input type="date" id="date">
+
+
+<label>Special Requirements</label>
+
+<textarea id="msg"></textarea>
+
+
+<button id="priceBtn">
+
+Calculate Decor Price
+
+</button>
+
+
+<div class="price">
+
+₹ <span id="price">0</span>
+
+</div>
+
+
+<button id="submitBtn">
+
+Submit Details
+
+</button>
+
+</div>
+<div class="card">
+
+<h2>Home Decor Gallery</h2>
+
+<div class="gallery" id="gallery">
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>User Submitted Details</h2>
+
+<table>
+
+<tr>
+
+<th>Field</th>
+
+<th>Value</th>
+
+</tr>
+
+
+<tr>
+
+<td>Name</td>
+
+<td id="rname"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Email</td>
+
+<td id="remail"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Phone</td>
+
+<td id="rphone"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Decor Type</td>
+
+<td id="rtype"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Package Price</td>
+
+<td id="rprice"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Decoration Date</td>
+
+<td id="rdate"></td>
+
+</tr>
+
+
+<tr>
+
+<td>Requirements</td>
+
+<td id="rmsg"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<footer>
+
+Home Decor Ideas Blog
+
+<br>
+
+homedecor@gmail.com
+
+<br>
+
++91 9876543210
+
+</footer>
+
+<script>
+
+
+document.getElementById("priceBtn")
+.addEventListener("click", function(){
+
+var price =
+document.getElementById("package").value;
+
+document.getElementById("price")
+.innerHTML = price;
+
+});
+
+
+var photos = [
+
+"https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
+
+"https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
+
+"https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+
+"https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg",
+
+"https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg",
+
+"https://images.pexels.com/photos/1571738/pexels-photo-1571738.jpeg"
+
+];
+
+
+var gallery =
+document.getElementById("gallery");
+
+
+for(var i=0;i<6;i++){
+
+var img =
+document.createElement("img");
+
+img.src =
+photos[Math.floor(Math.random()*photos.length)];
+
+gallery.appendChild(img);
+
+}
+
+document.getElementById("submitBtn")
+.addEventListener("click",function(){
+
+
+document.getElementById("rname").innerHTML =
+document.getElementById("name").value;
+
+
+document.getElementById("remail").innerHTML =
+document.getElementById("email").value;
+
+
+document.getElementById("rphone").innerHTML =
+document.getElementById("phone").value;
+
+
+document.getElementById("rtype").innerHTML =
+document.getElementById("dtype").value;
+
+
+document.getElementById("rprice").innerHTML =
+"₹ " + document.getElementById("package").value;
+
+
+document.getElementById("rdate").innerHTML =
+document.getElementById("date").value;
+
+
+document.getElementById("rmsg").innerHTML =
+document.getElementById("msg").value;
+
+
+alert("🏠 Home Decor Details Submitted Successfully!");
+
+});
+
+
+document.getElementById("name")
+.addEventListener("keyup",function(){
+
+this.style.background="#fff3cd";
+
+});
+
+
+document.getElementById("dtype")
+.addEventListener("change",function(){
+
+alert("Decor Type : " + this.value);
+
+});
+
+
+document.getElementById("email")
+.addEventListener("focus",function(){
+
+this.style.border="3px solid #8b5e3c";
+
+});
+
+
+document.getElementById("email")
+.addEventListener("blur",function(){
+
+this.style.border="1px solid gray";
+});
+document.querySelector("header")
+.addEventListener("dblclick",function(){
+this.style.background =
+"linear-gradient(90deg,#d28b45,#a0522d)";
+});
+document.querySelector("footer")
+.addEventListener("mouseover",function(){
+this.style.background="#8b5e3c";
+});
+document.querySelector("footer")
+.addEventListener("mouseout",function(){
+this.style.background="#33251d";
+});
+window.onload=function(){
+alert("🏠 Welcome to Home Decor Ideas Blog");
+};
+</script>
+</body>
+</html>
