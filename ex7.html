@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 7 - Working with jQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f3eee8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+header {
+    text-align: center;
+    background: #493323;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+section {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 22px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #ccc;
+}
+h2 { color: #795548; }
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+button {
+    padding: 11px 16px;
+    margin-top: 15px;
+    background: #795548;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover { background: #4e342e; }
+.result {
+    margin-top: 18px;
+    padding: 15px;
+    background: #f5eee9;
+    border-radius: 8px;
+}
+.checkbox-row {
+    margin-top: 14px;
+}
+.checkbox-row label {
+    display: inline;
+}
+.checkbox-row input { width: auto; }
+.total {
+    font-size: 21px;
+    font-weight: bold;
+    color: #795548;
+}
+#status1, #status2, #status3 {
+    font-weight: bold;
+}
+.car-area {
+    margin-top: 20px;
+    background: #e3f2fd;
+    border-radius: 10px;
+    padding: 15px;
+}
+svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.car-body {
+    fill: #e53935;
+    stroke: #333;
+    stroke-width: 3;
+}
+.car-glass {
+    fill: #a8d8ea;
+    stroke: #333;
+    stroke-width: 3;
+}
+.tyre {
+    fill: #222;
+    stroke: #111;
+    stroke-width: 2;
+}
+.rim {
+    fill: #ccc;
+    stroke: #555;
+    stroke-width: 2;
+}
+footer {
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Experiment 7: Working with jQuery</h1>
+    <p>Budget Calculator | Cake Order | Car Workshop</p>
+</header>
+
+<!-- PROGRAM 1: BUDGET CALCULATOR -->
+<section>
+    <h2>1. Budget Calculator</h2>
+
+    <label for="amount">Total Amount (₹)</label>
+    <input type="number" id="amount" min="0" step="0.01"
+           placeholder="Enter total amount">
+
+    <label for="rent">Room Rent (%)</label>
+    <input type="number" id="rent" min="0" max="100" value="30">
+
+    <label for="accessories">Accessories (%)</label>
+    <input type="number" id="accessories" min="0" max="100" value="20">
+
+    <label for="emergency">Emergency Funds (%)</label>
+    <input type="number" id="emergency" min="0" max="100" value="10">
+
+    <label for="saving">Savings (%)</label>
+    <input type="number" id="saving" min="0" max="100" value="40">
+
+    <button id="evaluate">Evaluate My Money</button>
+
+    <div class="result">
+        <p>Room Rent: ₹<span id="rentResult">0.00</span></p>
+        <p>Accessories: ₹<span id="accessoriesResult">0.00</span></p>
+        <p>Emergency Funds: ₹<span id="emergencyResult">0.00</span></p>
+        <p>Savings: ₹<span id="savingResult">0.00</span></p>
+        <p id="status1"></p>
+    </div>
+</section>
+
+<!-- PROGRAM 2: CAKE ORDER CALCULATOR -->
+<section>
+    <h2>2. Cake Order Calculator</h2>
+
+    <label for="cake">Cake Flavour</label>
+    <select id="cake">
+        <option value="500">Chocolate - ₹500/kg</option>
+        <option value="450">Vanilla - ₹450/kg</option>
+        <option value="550">Red Velvet - ₹550/kg</option>
+        <option value="600">Black Forest - ₹600/kg</option>
+    </select>
+
+    <label for="size">Cake Weight</label>
+    <select id="size">
+        <option value="0.5">0.5 kg</option>
+        <option value="1" selected>1 kg</option>
+        <option value="2">2 kg</option>
+        <option value="3">3 kg</option>
+    </select>
+
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" min="1" step="1" value="1">
+
+    <div class="checkbox-row">
+        <input type="checkbox" id="candles">
+        <label for="candles">Birthday Candles (+₹30)</label>
+    </div>
+
+    <div class="checkbox-row">
+        <input type="checkbox" id="message">
+        <label for="message">Special Cake Message (+₹50)</label>
+    </div>
+
+    <label for="delivery">Delivery</label>
+    <select id="delivery">
+        <option value="0">Store Pickup - Free</option>
+        <option value="80">Home Delivery - ₹80</option>
+    </select>
+
+    <button id="calculateCake">Calculate Cake Order</button>
+
+    <div class="result">
+        <p>Cake Price: ₹<span id="cakePrice">0.00</span></p>
+        <p>Extras: ₹<span id="extrasPrice">0.00</span></p>
+        <p>Delivery: ₹<span id="deliveryPrice">0.00</span></p>
+        <p class="total">Total: ₹<span id="totalPrice">0.00</span></p>
+        <p id="status2"></p>
+    </div>
+</section>
+
+<!-- PROGRAM 3: CAR BODY WORKSHOP -->
+<section>
+    <h2>3. Car Body Workshop</h2>
+    <p>Change the car's body colour, glass tint, and tyre size.</p>
+
+    <div class="car-area">
+        <svg viewBox="0 0 600 300" role="img" aria-label="Car preview">
+            <!-- Car body -->
+            <path class="car-body"
+                  d="M70 185 L95 145 L165 135
+                     L220 80 L390 80 L455 140
+                     L510 155 L535 185 L535 220
+                     L65 220 Z"/>
+
+            <!-- Windows -->
+            <path class="car-glass"
+                  d="M235 95 L300 95 L300 135
+                     L195 135 Z"/>
+            <path class="car-glass"
+                  d="M315 95 L382 95 L420 135
+                     L315 135 Z"/>
+
+            <line x1="307" y1="90" x2="307" y2="140"
+                  stroke="#333" stroke-width="4"/>
+
+            <!-- Doors and handles -->
+            <line x1="190" y1="145" x2="190" y2="210"
+                  stroke="#333" stroke-width="3"/>
+            <line x1="315" y1="145" x2="315" y2="210"
+                  stroke="#333" stroke-width="3"/>
+            <rect x="220" y="155" width="30" height="5" fill="#333"/>
+            <rect x="340" y="155" width="30" height="5" fill="#333"/>
+
+            <!-- Lights -->
+            <rect x="500" y="165" width="25" height="15"
+                  rx="4" fill="#fff176"/>
+            <rect x="72" y="165" width="20" height="15"
+                  rx="4" fill="#ef5350"/>
+
+            <!-- Wheels -->
+            <circle class="tyre" cx="165" cy="215" r="32"/>
+            <circle class="rim" cx="165" cy="215" r="15"/>
+            <circle class="tyre" cx="435" cy="215" r="32"/>
+            <circle class="rim" cx="435" cy="215" r="15"/>
+        </svg>
+    </div>
+
+    <label for="bodyColor">Car Body Colour</label>
+    <select id="bodyColor">
+        <option value="#e53935">Red</option>
+        <option value="#1565c0">Blue</option>
+        <option value="#2e7d32">Green</option>
+        <option value="#212121">Black</option>
+        <option value="#f9a825">Yellow</option>
+        <option value="#eeeeee">White</option>
+    </select>
+
+    <label for="glassTint">Glass Tint</label>
+    <select id="glassTint">
+        <option value="#a8d8ea">Light Blue</option>
+        <option value="#78909c">Grey</option>
+        <option value="#37474f">Dark Grey</option>
+        <option value="#263238">Black Tint</option>
+        <option value="#b2dfdb">Light Green</option>
+    </select>
+
+    <label for="tyreSize">Tyre Size</label>
+    <select id="tyreSize">
+        <option value="25">Small</option>
+        <option value="32" selected>Medium</option>
+        <option value="40">Large</option>
+    </select>
+
+    <button id="applyCar">Apply Changes</button>
+    <button id="resetCar">Reset Car</button>
+
+    <div class="result">
+        <p>Body Colour: <span id="bodyText">Red</span></p>
+        <p>Glass Tint: <span id="glassText">Light Blue</span></p>
+        <p>Tyre Size: <span id="tyreText">Medium</span></p>
+        <p id="status3">Ready to customize your car!</p>
+    </div>
+</section>
+
+<footer>
+    <p>Experiment 7 - Working with jQuery</p>
+</footer>
+
+<script>
+$(document).ready(function () {
+
+    // PROGRAM 1: BUDGET CALCULATOR
+    $("#evaluate").click(function () {
+        let amountText = $("#amount").val();
+        let amount = Number(amountText);
+
+        let rent = Number($("#rent").val());
+        let accessories = Number($("#accessories").val());
+        let emergency = Number($("#emergency").val());
+        let saving = Number($("#saving").val());
+
+        let percentages = [rent, accessories, emergency, saving];
+
+        if (amountText === "" || !Number.isFinite(amount) || amount <= 0) {
+            alert("Please enter a valid total amount.");
+            return;
+        }
+
+        if (percentages.some(p => !Number.isFinite(p) || p < 0 || p > 100)) {
+            alert("Each percentage must be between 0 and 100.");
+            return;
+        }
+
+        let sum = rent + accessories + emergency + saving;
+
+        if (Math.abs(sum - 100) > 0.000001) {
+            alert("The percentages must add up to 100%.");
+            return;
+        }
+
+        $("#rentResult").text((amount * rent / 100).toFixed(2));
+        $("#accessoriesResult").text((amount * accessories / 100).toFixed(2));
+        $("#emergencyResult").text((amount * emergency / 100).toFixed(2));
+        $("#savingResult").text((amount * saving / 100).toFixed(2));
+
+        $("#status1").css("color", "green")
+                     .text("Budget calculated successfully!");
+    });
+
+
+    // PROGRAM 2: CAKE ORDER CALCULATOR
+    $("#calculateCake").click(function () {
+        let quantityText = $("#quantity").val();
+        let quantity = Number(quantityText);
+
+        if (quantityText === "" || !Number.isInteger(quantity) || quantity < 1) {
+            alert("Please enter a valid cake quantity.");
+            return;
+        }
+
+        let price = Number($("#cake").val());
+        let size = Number($("#size").val());
+        let delivery = Number($("#delivery").val());
+
+        let cakeTotal = price * size * quantity;
+        let extras = 0;
+
+        if ($("#candles").is(":checked")) {
+            extras += 30;
+        }
+
+        if ($("#message").is(":checked")) {
+            extras += 50;
+        }
+
+        let total = cakeTotal + extras + delivery;
+
+        $("#cakePrice").text(cakeTotal.toFixed(2));
+        $("#extrasPrice").text(extras.toFixed(2));
+        $("#deliveryPrice").text(delivery.toFixed(2));
+        $("#totalPrice").text(total.toFixed(2));
+
+        $("#status2").css("color", "green")
+                     .text("Cake order calculated successfully!");
+    });
+
+
+    // PROGRAM 3: CAR BODY WORKSHOP
+    function applyCarChanges() {
+        let bodyColor = $("#bodyColor").val();
+        let glassTint = $("#glassTint").val();
+        let tyreSize = Number($("#tyreSize").val());
+
+        $(".car-body").css("fill", bodyColor);
+        $(".car-glass").css("fill", glassTint);
+        $(".tyre").attr("r", tyreSize);
+        $(".rim").attr("r", tyreSize * 0.47);
+
+        $("#bodyText").text($("#bodyColor option:selected").text());
+        $("#glassText").text($("#glassTint option:selected").text());
+        $("#tyreText").text($("#tyreSize option:selected").text());
+
+        $("#status3").css("color", "green")
+                     .text("Car customization applied successfully!");
+    }
+
+    $("#applyCar").click(function () {
+        applyCarChanges();
+    });
+
+    $("#resetCar").click(function () {
+        $("#bodyColor").val("#e53935");
+        $("#glassTint").val("#a8d8ea");
+        $("#tyreSize").val("32");
+        applyCarChanges();
+
+        $("#status3").text("Car settings have been reset.");
+    });
+
+});
+</script>
+</body>
+</html>
